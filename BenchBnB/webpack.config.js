@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = {
-  entry: path.join(__dirname, "frontend", "benchbnb.jsx"),
+  entry: path.join(__dirname, "frontend", "bench_bnb.jsx"),
   output: {
     path: path.join(__dirname, "app", "assets", "javascripts"),
     filename: "bundle.js"

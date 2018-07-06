@@ -22,9 +22,12 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-		"webpack": "webpack --mode=development --watch"
+    "webpack": "webpack --mode=development --watch"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "webpack-cli": "^3.0.8"
+  }
 }
