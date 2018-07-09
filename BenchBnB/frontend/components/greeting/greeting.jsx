@@ -14,8 +14,8 @@ class Greeting extends React.Component{
     } else {
       return (
         <div>
-          <Link to="/api/login">Login</Link>
-          <Link to="/api/signup">Signup</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/signup">Signup</Link>
         </div>
       );
     }
