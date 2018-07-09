@@ -11,30 +11,51 @@ class SessionForm extends React.Component {
     };
   }
 
+  handleChange(field) {
+    return (e) => {
+      this.setState({[field]: e.target.value});
+    };
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    this.props.processForm(user).then(success => this.setState({username: "", password: ""}));
   }
 
   render () {
+    let linkUrl, title;
+
     if (this.props.formType === 'login') {
-      return (
-        <div>
-          <h3>Log In</h3>
-          <Link to="api/login"></Link>
-          {this.props.errors}
-        </div>
-      );
+      linkUrl = '/login';
+      title = 'Log In';
     } else {
-      return (
-        <div>
-          <h3>Sign Up</h3>
-          <Link to="api/signup"></Link>
-          {this.props.errors}
-        </div>
-      );
+      linkUrl = '/signup';
+      title = 'Sign Up';
     }
+
+    const errors = this.props.errors.map((error, i) => <li key={i}>{error}</li>);
+
+    return(
+      <div>
+        <h2>{title}</h2>
+        <Link to={linkUrl}></Link>
+
+        <ul>{errors}</ul>
+        <form onSubmit={this.handleSubmit.bind(this)}>
+          <label>Username
+            <input value={this.state.username} onChange={this.handleChange('username')}></input>
+          </label>
+          <label>Password
+            <input type="password" value={this.state.password} onChange={this.handleChange('password')}></input>
+          </label>
+          <button>Submit</button>
+        </form>
+      </div>
+    );
   }
 
 }
+
+
+export default SessionForm;
