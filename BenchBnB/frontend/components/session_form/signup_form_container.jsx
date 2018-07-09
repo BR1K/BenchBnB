@@ -2,17 +2,17 @@ import { signup } from '../../actions/session_actions';
 import SessionForm from './session_form';
 import { connect } from 'react-redux';
 
-const mapStateToProps = (state, ownProps) => {
+const mSP = (state, ownProps) => {
   return {
-    errors: state.entities.errors,
-    formType: 'signup', // temp
+    errors: state.errors.session,
+    formType: 'signup',
   };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mDP = (dispatch, ownProps) => {
   return {
     processForm: (user) => dispatch(signup(user))
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SessionForm);
+export default connect(mSP, mDP)(SessionForm);

@@ -4,7 +4,7 @@ import Greeting from './greeting';
 
 const mapStateToProps = state => {
 	return {
-		current_user: state.entities.users[state.session.id],
+		currentUser: state.entities.users[state.session.id],
 	};
 };
 
